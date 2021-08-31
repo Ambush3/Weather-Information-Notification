@@ -22,7 +22,14 @@ def weather(city):
     weather = soup.select('#wob_tm')[0].getText().strip()
 
     information = f"{location}\n{current_time}\n{info}\n{weather} °C "
-    print(information)
+    
+    toaster = ToastNotifier()
+    toaster.show_toast("Weather Information",
+                       f"{information}",
+                       duration=10,
+                       threaded=True)
+    while toaster.notification_active(): time.sleep(0.005)
+    
 
 
 city = "Grand Rapids"
