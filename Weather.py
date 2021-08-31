@@ -21,7 +21,7 @@ def weather(city):
     info = soup.select('#wob_dc')[0].getText().strip()
     weather = soup.select('#wob_tm')[0].getText().strip()
 
-    information = f"{location}\n{current_time}\n{info}\n{weather} °C "
+    information = f"{location}\n{current_time}\n{info}\n{weather} °F "
     print(information)
 
 
